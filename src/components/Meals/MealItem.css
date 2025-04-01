@@ -1,3 +1,24 @@
 .product-thumbnail {
   width: 250px;
 }
+
+.product {
+  width: 300px;
+  padding: 1rem;
+  background-color: #221b14;
+}
+
+.product-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product-description {
+  height: 100px;
+  overflow: hidden;
+}
+
+.product-name {}
+
+.product-price {}
