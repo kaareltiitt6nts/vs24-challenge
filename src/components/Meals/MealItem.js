@@ -16,11 +16,11 @@ const MealItem = (props) => {
                 <img src={require(`../../assets/${image}`)} alt={name}/>
                 <div>
                     <h3 className="meal-item-name">{name}</h3>
-                    <p className="meal-item-price">{Intl.NumberFormat("en-ee", {style:"currency", currency:"EUR"}).format(price)}</p>
+                    <p className="meal-item-price">{Intl.NumberFormat("de-DE", {style:"currency", currency:"EUR"}).format(price)}</p>
                     <p className="meal-item-description">{description}</p>
                 </div>
                 <div className="meal-item-actions">
-                    <Button onClick={() => handleOrder(props)}>Place an order</Button>
+                    <Button onClick={() => handleOrder(props)}>Add to cart</Button>
                 </div>
             </article>
         </li>

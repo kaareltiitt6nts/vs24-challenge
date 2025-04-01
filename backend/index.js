@@ -4,6 +4,7 @@ const path = require("path");
 const express = require("express");
 
 const app = express();
+const PORT = 3001
 
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, "..", "build")));
@@ -30,4 +31,4 @@ app.use((req, res) => {
   res.status(404).json({ message: "Not found" });
 });
 
-app.listen(3001, () => {console.log(`Server is running on port 3001!`)});
+app.listen(PORT, () => {console.log(`Server is running on port ${PORT}!`)});

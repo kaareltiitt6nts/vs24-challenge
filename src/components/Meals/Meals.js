@@ -1,6 +1,5 @@
 import { useEffect, useState, useContext } from "react"
 import MealItem from "./MealItem"
-import CartContext from "../../context/CartContext"
 
 const Meals = () => {
     const [meals, setMeals] = useState([])
