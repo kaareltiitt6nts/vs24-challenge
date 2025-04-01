@@ -31,15 +31,18 @@ const Modal = () => {
         return (
             <dialog className="modal cart" ref={modal}>
                 <h2>Your cart</h2>
-                <ul>
-                    {state.map((item, index) => {
-                        return (
-                            <li className="cart-item" key={index}>
-                                <p>{item.name} - {item.quantity}</p>
-                            </li>
-                        )
-                    })}
-                </ul>
+                {
+                    state.length === 0 ? (<p>The cart is empty!</p>) :
+                    <ul>
+                        {state.map((item, index) => {
+                            return (
+                                <li className="cart-item" key={index}>
+                                    <p>{item.name} - {item.quantity}</p>
+                                </li>
+                            )
+                        })}
+                    </ul>
+                }
                 <p className="cart-total">{formatPrice(state.reduce((acc, item) => acc + item.price * item.quantity, 0))}</p>
                 <div className="modal-actions">
                         <Button onClick={() => cancelHandler()}>Cancel</Button>
