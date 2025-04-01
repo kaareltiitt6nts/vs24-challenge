@@ -6,10 +6,10 @@ import CartContext from "../../context/CartContext"
 
 const MealItem = (props) => {
     const {id, image, name, price, description} = props
-    const {cartContents, addToCart} = useContext(CartContext)
+    const {dispatchCart} = useContext(CartContext)
 
     const handleOrder = (productData) => {
-        addToCart(productData)
+        dispatchCart({type: "INPUT_ADD_TO_CART", data: productData})
     }
 
     return (

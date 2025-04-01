@@ -1,27 +1,34 @@
-import { useState } from "react";
+import { useReducer, useState } from "react";
 import Header from "./components/Header";
 import Meals from "./components/Meals/Meals";
 import CartContext from "./context/CartContext";
 
-const App = () => {
-  const [cartContents, setCartContents] = useState([])
+const cartReducer = (state, action) => {
+  // tuleks teha switch case... too võib veidi oodata
+  if (action.type === "INPUT_ADD_TO_CART") {
+    const existingProduct = state.find(item => item.id === action.data.id)
 
-  const addToCart = (productData) => {
-    const product = cartContents.find(product => product.id === productData.id)
-
-    if (product) {
-      product.quantity += 1
-      const tempArray = [...cartContents]
-      setCartContents(null) // imelik hack, ilmselt kaob kunagi ära kuid isiklikult kahtlen selles
-      setCartContents(tempArray)
+    if (existingProduct) {
+      return state.map(
+        product => product.id === action.data.id
+        ? {...product, quantity: product.quantity + 1}
+        : product
+      )
     }
     else {
-      setCartContents(cartContents => [...cartContents, {...productData, quantity: 1}])
+      return [...state, {...action.data, quantity: 1}]
     }
+
   }
+  
+  return state
+}
+
+const App = () => {
+  const [state, dispatchCart] = useReducer(cartReducer, [])
 
   return (
-    <CartContext.Provider value={{cartContents, addToCart}}>
+    <CartContext.Provider value={{state, dispatchCart}}>
       <Header />
       <Meals />
     </CartContext.Provider>

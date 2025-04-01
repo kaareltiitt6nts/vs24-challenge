@@ -4,13 +4,13 @@ import CartContext from '../context/CartContext'
 import Button from './UI/Button'
 
 const Header = () => {
-    const {cartContents, addToCart} = useContext(CartContext)
+    const {state, dispatchCart} = useContext(CartContext)
     const [cartCount, setCartCount] = useState(0)
     
     useEffect(() => {
-        const newCount = cartContents.reduce((acc, cartItem) => acc + cartItem.quantity, 0)
+        const newCount = state.reduce((acc, cartItem) => acc + cartItem.quantity, 0)
         setCartCount(newCount)
-    }, [cartContents])
+    }, [state])
     
 
     return (
