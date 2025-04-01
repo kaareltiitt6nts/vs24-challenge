@@ -1,5 +1,5 @@
 import Header from "./components/Header";
-import Meals from "./components/Meals";
+import Meals from "./components/Meals/Meals";
 
 const App = () => {
  return (
