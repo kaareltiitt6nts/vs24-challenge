@@ -1,5 +1,3 @@
-
-import "./MealItem.css"
 import Button from "../UI/Button"
 import { useContext } from "react"
 import CartContext from "../../context/CartContext"
@@ -13,15 +11,15 @@ const MealItem = (props) => {
     }
 
     return (
-        <li className="product">
-            <article className="product-content">
-                <img src={require(`../../assets/${image}`)} alt={name} className="product-thumbnail"/>
+        <li className="meal-item">
+            <article>
+                <img src={require(`../../assets/${image}`)} alt={name}/>
                 <div>
-                    <h3 className="product-name">{name}</h3>
-                    <p className="product-price">{Intl.NumberFormat("en-ee", {style:"currency", currency:"EUR"}).format(price)}</p>
-                    <p className="product-description">{description}</p>
+                    <h3 className="meal-item-name">{name}</h3>
+                    <p className="meal-item-price">{Intl.NumberFormat("en-ee", {style:"currency", currency:"EUR"}).format(price)}</p>
+                    <p className="meal-item-description">{description}</p>
                 </div>
-                <div>
+                <div className="meal-item-actions">
                     <Button onClick={() => handleOrder(props)}>Place an order</Button>
                 </div>
             </article>

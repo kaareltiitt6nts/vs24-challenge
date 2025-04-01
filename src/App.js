@@ -11,14 +11,13 @@ const cartReducer = (state, action) => {
     if (existingProduct) {
       return state.map(
         product => product.id === action.data.id
-        ? {...product, quantity: product.quantity + 1}
-        : product
+        ? {...product, quantity: product.quantity + 1} // kui õige product on leitud, siis tõsta quantity 1 võrra
+        : product // kui producti id ei ole see, mis vaja, siis ära tee midagi ning tagasta see mis enne juba oli
       )
     }
     else {
       return [...state, {...action.data, quantity: 1}]
     }
-
   }
   
   return state
