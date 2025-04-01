@@ -17,7 +17,7 @@ const Meals = () => {
     return (
         <ul id="meals">
             {meals.map((meal, index) => {
-                return <MealItem key={index} name={meal.name} image={meal.image} description={meal.description} price={meal.price}/>
+                return <MealItem key={index} id={meal.id} name={meal.name} image={meal.image} description={meal.description} price={meal.price}/>
             })}
         </ul>
     )

@@ -2,7 +2,11 @@ import "./MealItem.css"
 import Button from "../UI/Button"
 
 const MealItem = (props) => {
-    const {image, name, price, description} = props
+    const {id, image, name, price, description} = props
+
+    const handleOrder = (productId) => {
+        console.log(productId)
+    }
 
     return (
         <li className="product">
@@ -14,7 +18,7 @@ const MealItem = (props) => {
                     <p className="product-description">{description}</p>
                 </div>
                 <div>
-                    <Button onClick={() => console.log("hi")}>Place an order</Button>
+                    <Button onClick={() => handleOrder(id)}>Place an order</Button>
                 </div>
             </article>
         </li>
