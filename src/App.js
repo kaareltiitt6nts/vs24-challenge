@@ -11,12 +11,13 @@ const App = () => {
 
     if (product) {
       product.quantity += 1
+      const tempArray = [...cartContents]
+      setCartContents(null) // imelik hack, ilmselt kaob kunagi ära kuid isiklikult kahtlen selles
+      setCartContents(tempArray)
     }
     else {
       setCartContents(cartContents => [...cartContents, {...productData, quantity: 1}])
     }
-
-    console.log(cartContents)
   }
 
   return (
