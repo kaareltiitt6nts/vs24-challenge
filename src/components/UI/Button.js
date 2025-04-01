@@ -5,7 +5,7 @@ const Button = (props) => {
   const {enabled, onClick} = props
   
   return (
-    <button onClick={(event) => onClick(event)} className={`button`}>
+    <button onClick={(event) => onClick(event)} className={`button ${enabled ? "" : "disabled"}`}>
       {props.children}
     </button>
   )

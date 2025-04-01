@@ -15,7 +15,9 @@
   filter: brightness(95%);
 }
 
-.disabled {
+.button.disabled {
   background-color: gray;
   color: black;
+  cursor: not-allowed;
+  user-select: none;
 }
