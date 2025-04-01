@@ -1,11 +1,15 @@
+
 import "./MealItem.css"
 import Button from "../UI/Button"
+import { useContext } from "react"
+import CartContext from "../../context/CartContext"
 
 const MealItem = (props) => {
     const {id, image, name, price, description} = props
+    const {cartContents, addToCart} = useContext(CartContext)
 
-    const handleOrder = (productId) => {
-        console.log(productId)
+    const handleOrder = (productData) => {
+        addToCart(productData)
     }
 
     return (
@@ -18,7 +22,7 @@ const MealItem = (props) => {
                     <p className="product-description">{description}</p>
                 </div>
                 <div>
-                    <Button onClick={() => handleOrder(id)}>Place an order</Button>
+                    <Button onClick={() => handleOrder(props)}>Place an order</Button>
                 </div>
             </article>
         </li>

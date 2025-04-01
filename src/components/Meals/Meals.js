@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, useContext } from "react"
 import MealItem from "./MealItem"
+import CartContext from "../../context/CartContext"
 
 const Meals = () => {
     const [meals, setMeals] = useState([])
@@ -15,11 +16,11 @@ const Meals = () => {
     }, [])
 
     return (
-        <ul id="meals">
-            {meals.map((meal, index) => {
-                return <MealItem key={index} id={meal.id} name={meal.name} image={meal.image} description={meal.description} price={meal.price}/>
-            })}
-        </ul>
+      <ul id="meals">
+          {meals.map((meal, index) => {
+              return <MealItem key={index} id={meal.id} name={meal.name} image={meal.image} description={meal.description} price={meal.price}/>
+          })}
+      </ul>
     )
 }
 
