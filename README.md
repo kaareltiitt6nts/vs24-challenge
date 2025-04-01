@@ -1,7 +1,7 @@
 # REACT CHALLENGE
 Not sure how to proceed?
 
-Use everything you've learned from this cource!
+Use everything you've learned from this course!
 
 ## BUILD A "FOOD ORDER" WEB APPLICATION
 - Use the starting project

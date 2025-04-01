@@ -1,15 +1,17 @@
 const MealItem = (props) => {
+    const {image, name, price, description} = props
+
     return (
         <li>
             <article>
-                <img src={require(`../assets/${props.meal.image}`)} alt={props.meal.name}/>
+                <img src={require(`../assets/${image}`)} alt={name}/>
                 <div>
-                    <h3>{props.meal.name}</h3>
-                    <p>props.meal.price</p>
-                    <p>{props.meal.description}</p>
+                    <h3>{name}</h3>
+                    <p>{price}</p>
+                    <p>{description}</p>
                 </div>
                 <p>
-                    <button >Add to Cart</button>
+                    <button>Add to Cart</button>
                 </p>
             </article>
         </li>

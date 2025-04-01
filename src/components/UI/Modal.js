@@ -3,7 +3,6 @@ const Modal = (props) => {
         <dialog>
             {props.children}
         </dialog>
-        
     )
 }
 
